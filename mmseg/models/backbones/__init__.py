@@ -17,10 +17,10 @@ from .resnext import ResNeXt
 from .stdc import STDCContextPathNet, STDCNet
 from .swin import SwinTransformer
 from .timm_backbone import TIMMBackbone
+from .transunet import TransUnet
 from .twins import PCPVT, SVT
 from .unet import UNet
 from .vit import VisionTransformer
-from .transunet import TransUnet
 
 __all__ = [
     'ResNet', 'ResNetV1c', 'ResNetV1d', 'ResNeXt', 'HRNet', 'FastSCNN',

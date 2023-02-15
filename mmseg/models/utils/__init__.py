@@ -9,8 +9,8 @@ from .self_attention_block import SelfAttentionBlock
 from .shape_convert import (nchw2nlc2nchw, nchw_to_nlc, nlc2nchw2nlc,
                             nlc_to_nchw)
 from .up_conv_block import UpConvBlock
-from .wrappers import Upsample, resize
 from .vit_seg_modeling_resnet_skip import ResNetV2
+from .wrappers import Upsample, resize
 
 __all__ = [
     'ResLayer', 'SelfAttentionBlock', 'make_divisible', 'InvertedResidual',

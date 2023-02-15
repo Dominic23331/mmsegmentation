@@ -29,8 +29,8 @@ from .sep_fcn_head import DepthwiseSeparableFCNHead
 from .setr_mla_head import SETRMLAHead
 from .setr_up_head import SETRUPHead
 from .stdc_head import STDCHead
-from .uper_head import UPerHead
 from .transunet_head import TransUnetHead
+from .uper_head import UPerHead
 
 __all__ = [
     'FCNHead', 'PSPHead', 'ASPPHead', 'PSAHead', 'NLHead', 'GCHead', 'CCHead',
