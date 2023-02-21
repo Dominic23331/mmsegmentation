@@ -174,14 +174,16 @@ class TransUnetDecoder(BaseModule):
         x = hidden_states.permute(0, 2, 1)
         x = x.contiguous().view(B, hidden, h, w)
         x = self.conv_more(x)
+        dec_out = [x]
         for i, decoder_block in enumerate(self.blocks):
             if features is not None:
                 skip = features[i] if (i < self.n_skip) else None
             else:
                 skip = None
             x = decoder_block(x, skip=skip)
+            dec_out.append(x)
 
-        return x
+        return dec_out
 
 
 @MODELS.register_module()
