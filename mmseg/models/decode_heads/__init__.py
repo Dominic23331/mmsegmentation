@@ -29,7 +29,6 @@ from .sep_fcn_head import DepthwiseSeparableFCNHead
 from .setr_mla_head import SETRMLAHead
 from .setr_up_head import SETRUPHead
 from .stdc_head import STDCHead
-from .transunet_head import TransUnetHead
 from .uper_head import UPerHead
 
 __all__ = [
@@ -39,6 +38,5 @@ __all__ = [
     'PointHead', 'APCHead', 'DMHead', 'LRASPPHead', 'SETRUPHead',
     'SETRMLAHead', 'DPTHead', 'SETRMLAHead', 'SegmenterMaskTransformerHead',
     'SegformerHead', 'ISAHead', 'STDCHead', 'IterativeDecodeHead',
-    'KernelUpdateHead', 'KernelUpdator', 'MaskFormerHead', 'Mask2FormerHead',
-    'TransUnetHead'
+    'KernelUpdateHead', 'KernelUpdator', 'MaskFormerHead', 'Mask2FormerHead'
 ]
