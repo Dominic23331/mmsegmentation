@@ -5,6 +5,7 @@ import torch
 from mmengine.model import BaseModule, ModuleList, Sequential
 from torch import nn
 
+from mmseg.registry import MODELS
 from .decode_head import BaseDecodeHead
 
 
@@ -62,12 +63,14 @@ class DecoderBlock(BaseModule):
         return x
 
 
+@MODELS.register_module()
 class TransUnetHead(BaseDecodeHead):
 
     def __init__(self,
                  hidden_size,
                  n_skip,
                  skip_channels=None,
+                 head_channels=512,
                  dropout_ratio=0.,
                  loss_decode=[
                      dict(
@@ -79,7 +82,6 @@ class TransUnetHead(BaseDecodeHead):
                  ],
                  **kwargs):
         super().__init__(**kwargs)
-        head_channels = 512
         self.n_skip = n_skip
         self.conv_more = Conv2dReLU(
             hidden_size,
@@ -100,6 +102,10 @@ class TransUnetHead(BaseDecodeHead):
                 in_channels, self.in_channels, skip_channels)
         ]
         self.blocks = ModuleList(blocks)
+
+        self.conv_seg.kernel_size = 3
+        self.conv_seg.stride = 1
+        self.conv_seg.padding = 1
 
     def forward(self, inputs):
         hidden_states, features = inputs
